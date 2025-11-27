@@ -39,7 +39,7 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Connect</h4>
             <div className="flex gap-4">
               <a
-                href="https://github.com"
+                href="https://github.com/Asadhassan07"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-background rounded-lg hover:bg-primary/10 hover:text-primary transition-all"
@@ -47,23 +47,23 @@ const Footer = () => {
                 <Github className="h-5 w-5" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/asad-hassan-592a39308"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-background rounded-lg hover:bg-primary/10 hover:text-primary transition-all"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a
+              {/* <a
                 href="https://wa.me/1234567890"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-background rounded-lg hover:bg-primary/10 hover:text-primary transition-all"
               >
                 <FaWhatsapp className="h-5 w-5" />
-              </a>
+              </a> */}
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/shedu_asad/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-background rounded-lg hover:bg-primary/10 hover:text-primary transition-all"
