@@ -259,7 +259,7 @@ const projects = [
     id: 1,
     title: "Heart Disease Prediction",
     description: "Machine learning model that predicts heart disease risk using medical data.",
-    image: "public/heart.png",
+    image: "/heart.png",
     tags: ["React", "Python", "TensorFlow", "D3.js"],
     github: "https://github.com/AsadHassan074/Heart-Disease-Prediction-Machine-Learning.git",
   },
@@ -299,7 +299,7 @@ const projects = [
     id: 6,
     title: "Mental Health State Classifier",
     description: "Interactive weather app with maps and alerts.",
-    image: "public/health.png",
+    image: "/health.png",
     tags: ["React", "Weather API", "Mapbox", "TypeScript"],
     github: "https://github.com/AsadHassan074/-Mental-Health-State-Classifier-Web-App-Streamlit-.git",
   }
