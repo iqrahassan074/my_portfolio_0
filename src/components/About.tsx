@@ -25,10 +25,6 @@ const skills = [
   { name: "HTML/CSS", level: 95, icon: Code2, color: "from-pink-500 to-rose-500" },
 ];
 
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import { Sparkles } from "lucide-react";
-import { useRef } from "react";
-import { skills } from "@/data/skills";
 
 const About = () => {
   const ref = useRef(null);
@@ -42,15 +38,20 @@ const About = () => {
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
   return (
-    <section id="about" className="section-padding relative overflow-hidden px-4 sm:px-6 md:px-8">
+    <section
+      id="about"
+      className="section-padding relative overflow-hidden px-4 sm:px-6 md:px-8"
+    >
       {/* Animated background */}
-      <motion.div style={{ y }} className="absolute inset-0 opacity-20 pointer-events-none">
+      <motion.div
+        style={{ y }}
+        className="absolute inset-0 opacity-20 pointer-events-none"
+      >
         <div className="absolute top-10 left-10 w-40 h-40 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-primary/30 rounded-full blur-3xl animate-blob" />
         <div className="absolute bottom-10 right-10 w-40 h-40 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-secondary/30 rounded-full blur-3xl animate-blob animation-delay-2000" />
       </motion.div>
 
       <div className="container mx-auto relative z-10">
-        
         {/* Heading */}
         <motion.div
           ref={ref}
@@ -74,13 +75,13 @@ const About = () => {
           </h2>
 
           <p className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
-            A passionate developer dedicated to creating exceptional digital experiences
+            A passionate developer dedicated to creating exceptional digital
+            experiences
           </p>
         </motion.div>
 
         {/* 2 Column Responsive Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-start">
-          
           {/* Bio Section */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -89,44 +90,69 @@ const About = () => {
             className="space-y-8"
           >
             <div className="glass-card p-6 sm:p-8 md:p-10 rounded-3xl space-y-6 group hover:scale-[1.02] transition-all duration-500">
-              
-              <motion.div whileHover={{ scale: 1.1, rotate: 5 }} className="inline-block">
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                className="inline-block"
+              >
                 <h3 className="text-2xl sm:text-3xl font-bold font-display gradient-text-secondary">
                   Who I Am
                 </h3>
               </motion.div>
 
               <p className="text-muted-foreground leading-relaxed text-base sm:text-lg">
-                I'm a full-stack developer with a passion for building innovative web applications
-                and AI-powered solutions. With expertise spanning modern JavaScript frameworks,
-                Python, and machine learning, I bring ideas to life through clean, efficient code.
+                I'm a full-stack developer with a passion for building
+                innovative web applications and AI-powered solutions. With
+                expertise spanning modern JavaScript frameworks, Python, and
+                machine learning, I bring ideas to life through clean, efficient
+                code.
               </p>
 
               <p className="text-muted-foreground leading-relaxed text-base sm:text-lg">
-                My journey in tech has been driven by curiosity and a desire to solve real-world
-                problems. I specialize in creating scalable applications that combine cutting-edge
-                technology with intuitive user experiences.
+                My journey in tech has been driven by curiosity and a desire to
+                solve real-world problems. I specialize in creating scalable
+                applications that combine cutting-edge technology with intuitive
+                user experiences.
               </p>
 
-              {/* Stats */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 sm:pt-6">
+              {/* Stats Section (Fully Fixed Mobile Responsive) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-4 sm:pt-6 w-full">
                 {[
-                  { value: "5+", label: "Years Experience", gradient: "gradient-text" },
-                  { value: "50+", label: "Projects Done", gradient: "gradient-text-secondary" },
-                  { value: "20+", label: "Happy Clients", gradient: "gradient-text-accent" },
+                  {
+                    value: "5+",
+                    label: "Years Experience",
+                    gradient: "gradient-text",
+                  },
+                  {
+                    value: "50+",
+                    label: "Projects Done",
+                    gradient: "gradient-text-secondary",
+                  },
+                  {
+                    value: "20+",
+                    label: "Happy Clients",
+                    gradient: "gradient-text-accent",
+                  },
                 ].map((stat, i) => (
                   <motion.div
                     key={i}
                     initial={{ scale: 0 }}
                     animate={isInView ? { scale: 1 } : {}}
-                    transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
-                    whileHover={{ scale: 1.1, y: -5 }}
-                    className="glass-card p-4 sm:p-6 rounded-2xl text-center group cursor-pointer"
+                    transition={{
+                      duration: 0.5,
+                      delay: 0.4 + i * 0.1,
+                    }}
+                    whileHover={{ scale: 1.07, y: -3 }}
+                    className="glass-card p-5 rounded-2xl text-center group cursor-pointer flex flex-col items-center justify-center"
                   >
-                    <div className={`text-3xl sm:text-4xl font-bold font-display ${stat.gradient} mb-1 sm:mb-2`}>
+                    <div
+                      className={`text-3xl sm:text-4xl font-bold font-display ${stat.gradient} mb-1 sm:mb-2`}
+                    >
                       {stat.value}
                     </div>
-                    <div className="text-xs sm:text-sm text-muted-foreground">{stat.label}</div>
+
+                    <div className="text-xs sm:text-sm text-muted-foreground text-center break-words">
+                      {stat.label}
+                    </div>
                   </motion.div>
                 ))}
               </div>
@@ -153,7 +179,10 @@ const About = () => {
                       key={skill.name}
                       initial={{ opacity: 0, x: -20 }}
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
+                      transition={{
+                        duration: 0.4,
+                        delay: 0.6 + index * 0.1,
+                      }}
                       className="space-y-3 group"
                     >
                       <div className="flex flex-wrap items-center justify-between gap-2">
@@ -174,7 +203,9 @@ const About = () => {
                           className="text-xs sm:text-sm font-bold gradient-text"
                           initial={{ opacity: 0 }}
                           animate={isInView ? { opacity: 1 } : {}}
-                          transition={{ delay: 0.8 + index * 0.1 }}
+                          transition={{
+                            delay: 0.8 + index * 0.1,
+                          }}
                         >
                           {skill.level}%
                         </motion.span>
@@ -183,13 +214,23 @@ const About = () => {
                       <div className="h-3 bg-card/50 rounded-full overflow-hidden backdrop-blur-sm">
                         <motion.div
                           initial={{ width: 0 }}
-                          animate={isInView ? { width: `${skill.level}%` } : {}}
-                          transition={{ duration: 1.5, delay: 0.8 + index * 0.1, ease: "easeOut" }}
+                          animate={
+                            isInView ? { width: `${skill.level}%` } : {}
+                          }
+                          transition={{
+                            duration: 1.5,
+                            delay: 0.8 + index * 0.1,
+                            ease: "easeOut",
+                          }}
                           className={`h-full bg-gradient-to-r ${skill.color} rounded-full relative`}
                         >
                           <motion.div
                             animate={{ x: ["-100%", "100%"] }}
-                            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                              ease: "linear",
+                            }}
                             className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
                             style={{ width: "50%" }}
                           />
@@ -199,10 +240,8 @@ const About = () => {
                   );
                 })}
               </div>
-
             </div>
           </motion.div>
-
         </div>
       </div>
     </section>
